@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 def get_online(driver):
     pass
 
+
 def get_ping(driver):
     pass
 
