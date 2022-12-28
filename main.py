@@ -46,11 +46,10 @@ status.pack()
 
 
 s = Service(resource_path('./driver/chromedriver.exe'))
-s.creationflags = CREATE_NO_WINDOW
+s.creation_flags = CREATE_NO_WINDOW
+
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument("--headless")
-chrome_options.add_argument("--disable-extensions")
-chrome_options.add_argument("test-type")
 
 driver=webdriver.Chrome(service=s, options=chrome_options)
 driver.set_window_size(1920, 1080)
