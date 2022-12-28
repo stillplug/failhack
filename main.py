@@ -79,7 +79,7 @@ def worker():
         code = driver.find_elements(By.CLASS_NAME, "promo__code")
         type = driver.find_elements(By.CLASS_NAME, "promo__type")
         if code and type:
-            if code is not "" and type is not "":
+            if code != "" and type != "":
                 if main.promo_code != code[-1].text:
                     main.promo_code = code[-1].text
 
