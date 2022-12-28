@@ -95,6 +95,7 @@ def worker():
                     text.insert(END, "\n" + now.strftime("%H:%M") + " " + main.promo_code + " "+ "(" + type[-1].text + ") " + uses[-1].text)
     except:
         pass
+
     window.after(750, worker)
 
 def on_closing():
