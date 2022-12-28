@@ -16,8 +16,6 @@ import sys
 from subprocess import CREATE_NO_WINDOW
 import os
 
-
-
 def resource_path(relative_path):
     try:
         base_path = sys._MEIPASS
@@ -26,14 +24,11 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 promo_code = ""
-i = 0
 
 window = Tk()
-
-window.title("FAILHACK v1.6.5")
+window.title("FAILHACK v1.7")
 window.iconbitmap(resource_path('./resources/grave.ico'))
 window.geometry("430x410")
-# window.resizable(False, False)
 
 promo_frame = Frame(window)
 promo_frame.pack(side="top")
