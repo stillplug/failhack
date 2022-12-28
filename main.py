@@ -49,7 +49,16 @@ s = Service(resource_path('./driver/chromedriver.exe'))
 s.creation_flags = CREATE_NO_WINDOW
 
 chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument("--headless")
+chrome_options.add_experimental_option(
+    'prefs',
+    {
+        'profile.managed_default_content_settings.images': 2,
+        'profile.managed_default_content_settings.mixed_script': 2,
+        'profile.managed_default_content_settings.media_stream': 2,
+        'profile.managed_default_content_settings.stylesheets':2
+    }
+)
+#chrome_options.add_argument("--headless")
 
 driver=webdriver.Chrome(service=s, options=chrome_options)
 driver.set_window_size(1920, 1080)
