@@ -23,6 +23,8 @@ def resource_path(relative_path):
         base_path = os.path.dirname(__file__)
     return os.path.join(base_path, relative_path)
 
+PAGE = "https://csfail.org/uk/bonuses"
+REFRESH_TIME = 1000 * 60 * 5# 5 min.
 promo_code = ""
 
 window = Tk()
@@ -58,11 +60,11 @@ chrome_options.add_experimental_option(
         'profile.managed_default_content_settings.stylesheets':2
     }
 )
-chrome_options.add_argument("--headless")
+# chrome_options.add_argument("--headless")
 
 driver=webdriver.Chrome(service=s, options=chrome_options)
 driver.set_window_size(1920, 1080)
-driver.get("https://csfail.org/uk/bonuses")
+driver.get(PAGE)
 
 status.insert(1.0, "Статус: Активний")
 
@@ -107,9 +109,12 @@ def worker():
 def on_closing():
     driver.quit()
     sys.exit()
+def refresh():
+    driver.refresh()
+    window.after(REFRESH_TIME, refresh)
 
 window.protocol("WM_DELETE_WINDOW", on_closing)
-
 window.after(250, worker)
+window.after(REFRESH_TIME, refresh)
 mainloop()
 
