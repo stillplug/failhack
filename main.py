@@ -90,7 +90,6 @@ def worker():
             if len(code) > 1 and len(type) > 1:
                 if main.promo_code != code[-1].text:
                     main.promo_code = code[-1].text
-
                     pyperclip.copy(main.promo_code)
                     if "обичка" in type[-1].text.lower():
                         mixer.music.load(resource_path('./resources/miui_12_notification.mp3'))
