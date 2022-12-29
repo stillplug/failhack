@@ -82,7 +82,6 @@ def worker():
             update_status(datetime.datetime.now().strftime("%H:%M") + " Статус: Активний")
         else:
             update_status(datetime.datetime.now().strftime("%H:%M") + " Статус: Неактивний")
-        # calculate_benefit()
         uses = driver.find_elements(By.CLASS_NAME, "promo__uses")
         code = driver.find_elements(By.CLASS_NAME, "promo__code")
         type = driver.find_elements(By.CLASS_NAME, "promo__type")
@@ -112,6 +111,5 @@ def on_closing():
 window.protocol("WM_DELETE_WINDOW", on_closing)
 
 window.after(250, worker)
-# window.attributes("-topmost", True)
 mainloop()
 
