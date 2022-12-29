@@ -88,7 +88,7 @@ def worker():
         code = driver.find_elements(By.CLASS_NAME, "promo__code")
         type = driver.find_elements(By.CLASS_NAME, "promo__type")
         if code and type:
-            if len(code) > 1 and len(type) > 1:
+            if len(code[-1].text) > 1 and len(type[-1].text) > 1:
                 if main.promo_code != code[-1].text:
                     main.promo_code = code[-1].text
                     pyperclip.copy(main.promo_code)
